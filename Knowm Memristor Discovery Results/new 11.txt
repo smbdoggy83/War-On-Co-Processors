@@ -1,0 +1,17 @@
+Tue Oct 18 14:05:35 EDT 2022
+
+CHIP 2 (tungsten)
+NOTE: V2 board must be in Mode 1
+Mem-Inline Chip Test
+
+V_WRITE: 1.5V
+V_RESET: -2.0V
+V_READ: 0.1V
+
+            ALL OFF    S1         S2         S3         S4         S5         S6         S7         S8         S9         S10        S11        S12        S13        S14        S15        S16        
+ERASE       ∞ kΩ      |59.03 kΩ  |38.22 kΩ  |∞ kΩ      |∞ kΩ      |∞ kΩ      |∞ kΩ      |194.29 kΩ |∞ kΩ      |∞ kΩ      |∞ kΩ      |∞ kΩ      |∞ kΩ      |∞ kΩ      |∞ kΩ      |∞ kΩ      |27.88 kΩ  |
+WRITE       ∞ kΩ      |19.18 kΩ  |8.76 kΩ   |7.30 kΩ   |3.97 kΩ   |9.26 kΩ   |6.80 kΩ   |7.10 kΩ   |8.78 kΩ   |30.03 kΩ  |50.89 kΩ  |13.52 kΩ  |7.03 kΩ   |8.30 kΩ   |12.46 kΩ  |24.95 kΩ  |10.63 kΩ  |
+ERASE       ∞ kΩ      |67.15 kΩ  |92.22 kΩ  |∞ kΩ      |∞ kΩ      |∞ kΩ      |∞ kΩ      |∞ kΩ      |∞ kΩ      |∞ kΩ      |∞ kΩ      |∞ kΩ      |∞ kΩ      |∞ kΩ      |∞ kΩ      |∞ kΩ      |29.09 kΩ  |
+RESULT      ✓          ✓          ✓          ✓          ✓          ✓          ✓          ✓          ✓          ✓          ✓          ✓          ✓          ✓          ✓          ✓          ✓          
+
+TIER 1

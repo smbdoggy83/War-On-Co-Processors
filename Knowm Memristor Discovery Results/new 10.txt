@@ -1,0 +1,37 @@
+Tue Oct 18 14:02:52 EDT 2022
+
+
+Testing Board Switches
+NOTE: V2 board must be in Mode 1
+
+ ALL OFF: ∞ kΩ
+SWITCH 1: 67.97 kΩ
+SWITCH 2: 139.66 kΩ
+SWITCH 3: ∞ kΩ
+SWITCH 4: 149.71 kΩ
+SWITCH 5: ∞ kΩ
+SWITCH 6: ∞ kΩ
+SWITCH 7: 130.91 kΩ
+SWITCH 8: ∞ kΩ
+SWITCH 9: 166.59 kΩ
+SWITCH 10: ∞ kΩ
+SWITCH 11: ∞ kΩ
+SWITCH 12: ∞ kΩ
+SWITCH 13: ∞ kΩ
+SWITCH 14: ∞ kΩ
+SWITCH 15: ∞ kΩ
+SWITCH 16: 24.67 kΩ
+NOTE: V2 board must be in Mode 1
+Mem-Inline Chip Test
+
+V_WRITE: 1.5V
+V_RESET: -2.0V
+V_READ: 0.1V
+
+            ALL OFF    S1         S2         S3         S4         S5         S6         S7         S8         S9         S10        S11        S12        S13        S14        S15        S16        
+ERASE       ∞ kΩ      |79.03 kΩ  |∞ kΩ      |∞ kΩ      |∞ kΩ      |∞ kΩ      |∞ kΩ      |158.85 kΩ |∞ kΩ      |∞ kΩ      |∞ kΩ      |∞ kΩ      |∞ kΩ      |∞ kΩ      |∞ kΩ      |∞ kΩ      |25.94 kΩ  |
+WRITE       ∞ kΩ      |27.09 kΩ  |136.50 kΩ |79.64 kΩ  |4.60 kΩ   |7.32 kΩ   |6.46 kΩ   |6.99 kΩ   |10.69 kΩ  |42.61 kΩ  |62.77 kΩ  |17.46 kΩ  |13.52 kΩ  |9.78 kΩ   |19.79 kΩ  |8.88 kΩ   |16.90 kΩ  |
+ERASE       ∞ kΩ      |84.30 kΩ  |∞ kΩ      |∞ kΩ      |∞ kΩ      |∞ kΩ      |∞ kΩ      |∞ kΩ      |∞ kΩ      |∞ kΩ      |∞ kΩ      |∞ kΩ      |∞ kΩ      |∞ kΩ      |∞ kΩ      |∞ kΩ      |25.88 kΩ  |
+RESULT      ✓          ✓          X [STK HIGH]✓          ✓          ✓          ✓          ✓          ✓          ✓          ✓          ✓          ✓          ✓          ✓          ✓          X [Q2<MIN] 
+
+TIER 2

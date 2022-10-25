@@ -1,0 +1,14 @@
+NOTE: V2 board must be in Mode 1
+Mem-Inline Chip Test
+
+V_WRITE: 1.5V
+V_RESET: -2.0V
+V_READ: 0.1V
+
+            ALL OFF    S1         S2         S3         S4         S5         S6         S7         S8         S9         S10        S11        S12        S13        S14        S15        S16        
+ERASE       ∞ kΩ      |99.20 kΩ  |58.34 kΩ  |∞ kΩ      |151.97 kΩ |∞ kΩ      |∞ kΩ      |∞ kΩ      |∞ kΩ      |76.97 kΩ  |∞ kΩ      |38.69 kΩ  |115.14 kΩ |∞ kΩ      |∞ kΩ      |108.93 kΩ |∞ kΩ      |
+WRITE       ∞ kΩ      |45.26 kΩ  |15.86 kΩ  |16.39 kΩ  |53.70 kΩ  |20.43 kΩ  |∞ kΩ      |51.20 kΩ  |∞ kΩ      |3.50 kΩ   |4.15 kΩ   |23.67 kΩ  |15.77 kΩ  |5.27 kΩ   |3.18 kΩ   |35.54 kΩ  |10.99 kΩ  |
+ERASE       ∞ kΩ      |107.69 kΩ |49.96 kΩ  |∞ kΩ      |134.89 kΩ |187.04 kΩ |∞ kΩ      |∞ kΩ      |∞ kΩ      |84.07 kΩ  |∞ kΩ      |42.74 kΩ  |116.74 kΩ |∞ kΩ      |∞ kΩ      |158.59 kΩ |∞ kΩ      |
+RESULT      ✓          ✓          ✓          ✓          ✓          ✓          X [STK HIGH]✓          X [STK HIGH]✓          ✓          X [Q2<MIN] ✓          ✓          ✓          ✓          ✓          
+
+BURN AND LEARN
