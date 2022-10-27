@@ -1,6 +1,7 @@
 """ OSCILLOSCOPE CONTROL FUNCTIONS: open, measure, trigger, record, close """
 
 import ctypes                     # import the C compatible data types
+import numpy
 from sys import platform, path    # this is needed to check the OS type and get the PATH
 from os import sep                # OS specific file path separators
 
@@ -198,7 +199,9 @@ def record(device_data, channel):
     
     # convert into list
     buffer = [float(element) for element in buffer]
-    return buffer
+    step = 1/data.sampling_frequency
+    times = [*range(0, data.buffer_size)] * step #TODO: FIXME change range to float array
+    return buffer, times
 
 """-----------------------------------------------------------------------"""
 

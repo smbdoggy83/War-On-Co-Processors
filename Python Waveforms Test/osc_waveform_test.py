@@ -5,6 +5,7 @@ Created on Thu Oct 27 13:53:15 2022
 @author: Seth
 """
 
+"""
 import ctypes                     # import the C compatible data types
 from sys import platform, path    # this is needed to check the OS type and get the PATH
 from os import sep                # OS specific file path separators
@@ -29,6 +30,7 @@ path.append(constants_path)
 import dwfconstants as constants
 
 ###########################################################################################
+"""
 
 from WF_SDK import device, scope, wavegen   # import instruments
  
@@ -48,7 +50,8 @@ scope.open(device_data)
 wavegen.generate(device_data, channel=1, function=wavegen.function.sine, offset=0, frequency=10e03, amplitude=2)
  
 # record data with the scopeon channel 1
-buffer, time = scope.record(device_data, channel=1)
+#buffer, time = scope.record(device_data, channel=1)
+out = scope.record(device_data, channel=1)
  
 # plot
 time = [moment * 1e03 for moment in time]   # convert time to ms

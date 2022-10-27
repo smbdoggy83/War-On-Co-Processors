@@ -26,16 +26,16 @@ import dwfconstants as constants
 
 """-----------------------------------------------------------------------"""
 
-class window:
-    """ FFT windows """
-    rectangular = constants.DwfWindowRectangular
-    triangular = constants.DwfWindowTriangular
-    hamming = constants.DwfWindowHamming
-    hann = constants.DwfWindowHann
-    cosine = constants.DwfWindowCosine
-    blackman_harris = constants.DwfWindowBlackmanHarris
-    flat_top = constants.DwfWindowFlatTop
-    kaiser = constants.DwfWindowKaiser
+#class window:
+#    """ FFT windows """
+#    rectangular = constants.DwfWindowRectangular
+##    triangular = constants.DwfWindowTriangular
+###    hamming = constants.DwfWindowHamming
+  #  hann = constants.DwfWindowHann
+  #  cosine = constants.DwfWindowCosine
+  ##  blackman_harris = constants.DwfWindowBlackmanHarris
+  #  flat_top = constants.DwfWindowFlatTop
+  #  kaiser = constants.DwfWindowKaiser
 
 """-----------------------------------------------------------------------"""
 
