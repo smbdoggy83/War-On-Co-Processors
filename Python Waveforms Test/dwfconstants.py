@@ -250,4 +250,6 @@ enumfilterDiscovery  = c_int(2)
 enumfilterDiscovery2 = c_int(3)
 enumfilterDDiscovery = c_int(4)
 
-
+#uhhhhhhh
+#DwfWindowRectangular = c_int(0)
+#DwfWindowTriangular = c_int(1)
