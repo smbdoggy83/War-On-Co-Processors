@@ -4,12 +4,14 @@ Created on Tue Oct 25 14:17:10 2022
 
 @author: Seth
 """
-from WF_SDK import device       # import instruments
- 
+#from WF_SDK import device       # import instruments
+import DigiAD2 
+scope = DigiAD2()
+
 """-----------------------------------------------------------------------"""
  
 # connect to the device
-device_data = device.open()
+scope.open_scope()
  
 """-----------------------------------"""
  
@@ -19,4 +21,4 @@ device_data = device.open()
 """-----------------------------------"""
  
 # close the connection
-device.close(device_data)
+scope.close()
