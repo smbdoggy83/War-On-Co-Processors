@@ -3,6 +3,7 @@
 import ctypes                     # import the C compatible data types
 from sys import platform, path    # this is needed to check the OS type and get the PATH
 from os import sep                # OS specific file path separators
+from ctypes import c_ushort
 
 # load the dynamic library, get constants path (the path is OS specific)
 if platform.startswith("win"):
@@ -134,13 +135,13 @@ def set_state(device_data, channel, value):
     
     # set bit in mask
     if value == True:
-        mask |= __rotate_left__(1, channel, data.count)
+        mask = c_ushort(mask.value | __rotate_left__(1, channel, data.count))
     else:
         bits = pow(2, data.count) - 2
-        mask &= __rotate_left__(bits, channel, data.count)
+        mask = c_ushort(mask.value & __rotate_left__(bits, channel, data.count))
     
     # set the pin state
-    if dwf.FDwfDigitalIOOutputSet(device_data.handle, ctypes.c_int(mask)) == 0:
+    if dwf.FDwfDigitalIOOutputSet(device_data.handle, ctypes.c_int(mask.value)) == 0:
         check_error()
     return
 
