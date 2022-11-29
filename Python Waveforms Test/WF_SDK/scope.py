@@ -200,7 +200,7 @@ def record(device_data, channel):
     # convert into list
     buffer = [float(element) for element in buffer]
     step = 1/data.sampling_frequency
-    times = [*range(0, data.buffer_size)] * step #TODO: FIXME change range to float array
+    times = [float(x) * step for x in range(0, data.buffer_size)] #TODO: FIXME change range to float array
     return buffer, times
 
 """-----------------------------------------------------------------------"""

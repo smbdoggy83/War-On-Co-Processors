@@ -7,7 +7,8 @@ Created on Tue Oct 25 14:17:10 2022
 #from WF_SDK import device       # import instruments
 from time import sleep
 import ctypes
-from WF_SDK import device, pattern, supplies, static, wavegen
+import matplotlib.pyplot as plt
+from WF_SDK import device, scope, pattern, supplies, static, wavegen
 from DigiAD2 import DigiAD2 
 
 from sys import platform, path    # this is needed to check the OS type and get the PATH
@@ -38,6 +39,9 @@ supplies_data.state = True
 supplies_data.voltage = 5
 supplies.switch(device_data, supplies_data)
 
+#Initialize the scope with default settings
+scope.open(device_data)
+
 #Set all DIO pins as output
 for index in range(16):
     static.set_mode(device_data, index, True)
@@ -60,7 +64,17 @@ try:
         
         static.set_state(device_data, 0, mask)
         
+        buffer, time = scope.record(device_data, channel=1)
+        
+        # plot
+        time = [moment * 1e03 for moment in time]   # convert time to ms
+        plt.plot(time, buffer)
+        plt.xlabel("time [ms]")
+        plt.ylabel("voltage [V]")
+        plt.show()
+        
         sleep(60/72)
+        
 
 
 except KeyboardInterrupt: 
@@ -70,6 +84,9 @@ except KeyboardInterrupt:
 finally:
     # stop the static I/O
     static.close(device_data)
+    
+    #Close the scope
+    scope.close(device_data)
  
     # stop and reset the power supplies
     supplies_data.master_state = False
