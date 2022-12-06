@@ -4,10 +4,15 @@ Created on Tue Oct 25 14:17:10 2022
 
 @author: Seth
 """
-#from WF_SDK import device       # import instruments
+#from WF_SDK import device       # import instruments1
+import matplotlib.pyplot as plt
+import matplotlib.animation as Animation
+import pyformulas as pf
+import numpy as np
+
+
 from time import sleep
 import ctypes
-import matplotlib.pyplot as plt
 from WF_SDK import device, scope, pattern, supplies, static, wavegen
 from DigiAD2 import DigiAD2 
 
@@ -52,6 +57,14 @@ for index in range(16):
 
 mask = 1;
 
+times = []
+buffers = []
+fig = plt.figure()
+
+screen = pf.screen(title='Plot')
+
+plt.gcf().canvas.get_renderer()
+
 try:
     
     wavegen.generate(device_data, 
@@ -59,21 +72,42 @@ try:
                      function=wavegen.function.dc,
                      offset=5)
     
+    count = 0
+    
     while True:
-        mask ^= 1
+        count = count + 1
+        
+        if count > 20:
+            count = 0
+            mask ^= 1
         
         static.set_state(device_data, 0, mask)
         
+        #Read in data from scope
         buffer, time = scope.record(device_data, channel=1)
         
         # plot
         time = [moment * 1e03 for moment in time]   # convert time to ms
-        plt.plot(time, buffer)
+        #times.extend(time)
+        times = time
+        #buffers.extend(buffer)
+        buffers = buffer
+        
+        fig.clear()
         plt.xlabel("time [ms]")
         plt.ylabel("voltage [V]")
-        plt.show()
+        plt.plot(buffers)
         
-        sleep(60/72)
+        image = np.fromstring(fig.canvas.tostring_rgb(), dtype=np.uint8, sep='')
+        image = image.reshape(fig.canvas.get_width_height()[::-1] + (3,))
+
+
+        fig.canvas.draw()
+
+        screen.update(image)
+        
+        
+        sleep(0.001)
         
 
 
@@ -82,6 +116,8 @@ except KeyboardInterrupt:
     pass
 
 finally:
+    screen.close()
+    
     # stop the static I/O
     static.close(device_data)
     
