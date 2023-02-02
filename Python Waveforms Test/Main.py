@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 import matplotlib.animation as Animation
 import pyformulas as pf
 import numpy as np
+import statistics
 
 
 from time import sleep
@@ -30,6 +31,10 @@ path.append(constants_path)
 import dwfconstants as constants
 from WF_SDK.device import check_error
 
+def findRes(Vin : float, Vmeas : float, R : float) -> float:
+    
+    return (Vmeas * R) / (Vin - Vmeas)
+
 """-----------------------------------------------------------"""
 #Initialize the device
 device_name = "Analog Discovery 2"
@@ -41,7 +46,7 @@ device_data.name = device_name
 supplies_data = supplies.data()
 supplies_data.master_state = True
 supplies_data.state = True
-supplies_data.voltage = 5
+supplies_data.voltage = 3.3
 supplies.switch(device_data, supplies_data)
 
 #Initialize the scope with default settings
@@ -67,10 +72,12 @@ plt.gcf().canvas.get_renderer()
 
 try:
     
+    Vin = 2
+    
     wavegen.generate(device_data, 
                      channel=1, 
                      function=wavegen.function.dc,
-                     offset=5)
+                     offset=Vin)
     
     count = 0
     
@@ -80,18 +87,23 @@ try:
         if count > 20:
             count = 0
             mask ^= 1
-        
+            #mask = 0
+
+        #Set output channels according to mask
         static.set_state(device_data, 0, mask)
         
         #Read in data from scope
         buffer, time = scope.record(device_data, channel=1)
         
+        buffer2, time2 = scope.record(device_data, channel=2)        
+
         # plot
         time = [moment * 1e03 for moment in time]   # convert time to ms
-        #times.extend(time)
-        times = time
-        #buffers.extend(buffer)
-        buffers = buffer
+        times.extend(time)
+        #times = time
+        buffers.extend(buffer)
+        #buffers = buffer
+
         
         fig.clear()
         plt.xlabel("time [ms]")
@@ -106,8 +118,16 @@ try:
 
         screen.update(image)
         
+        Vmeas = statistics.mean(buffer)
+        V2meas = statistics.mean(buffer2)
         
-        sleep(0.001)
+        print("Resistance is: %d" % findRes(Vin, Vmeas, R = 22000),  "across Resistor on line %d" % mask)
+        
+        print("Voltage is: %2f" % Vmeas)
+        
+        print("Voltage across main resistor is :%2f" % (V2meas-Vmeas))
+        
+        sleep(0.01)
         
 
 
@@ -133,3 +153,4 @@ finally:
  
     # close the connection
     device.close(device_data)
+    
