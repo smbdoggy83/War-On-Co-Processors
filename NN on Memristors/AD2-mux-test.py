@@ -42,12 +42,13 @@ device_name = "Analog Discovery 2"
 device_data = device.open()
 device_data.name = device_name
 
-#Start the positive supply (W1 = 3.3V)
+#Start the positive supply (V+ = 5V)
 supplies_data = supplies.data()
 supplies_data.master_state = True
 supplies_data.state = True
 supplies_data.voltage = 3.3
 supplies.switch(device_data, supplies_data)
+sleep(0.2)
 
 #Initialize the scope with default settings
 scope.open(device_data)
@@ -70,6 +71,9 @@ screen = pf.screen(title='Plot')
 
 plt.gcf().canvas.get_renderer()
 
+DIO = 0
+mask = 1
+
 try:
     
     Vin = 2
@@ -81,17 +85,31 @@ try:
     
     count = 0
     
-    while True:
-        count = count + 1
+    while count < 100:
+        count += 1 
         
-        if count > 20:
+#        if count > 10:
+#            mask = 1
+#        else:
+#            mask = 0
+        
+        if count == 20:
             count = 0
-            mask ^= 1 # Switches channels
+            #mask = 1
+            mask ^= 1 # flips to 1 or 0
+            
+#        if count = 50:
+#            mask = 2
+            #DIO += 1 # Switches channels
+            #if DIO >= 8:
+            #    DIO = 0
             #mask = 0
 
+            
         #Set output channels according to mask
-        static.set_state(device_data, 0, mask)
+        static.set_state(device_data, DIO, mask)
         
+        """
         #Read in data from scope
         buffer, time = scope.record(device_data, channel=1)
         
@@ -127,9 +145,11 @@ try:
         
         print("Voltage across main resistor is :%2f" % (V2meas-Vmeas))
         
+        """
+        
         sleep(0.01)
         
-
+        
 
 except KeyboardInterrupt: 
     #Stop if Ctrl+C is pressed
