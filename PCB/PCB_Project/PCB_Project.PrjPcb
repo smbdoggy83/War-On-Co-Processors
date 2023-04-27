@@ -82,6 +82,79 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=GLDIVRHV
 
+[Document3]
+DocumentPath=JACK_CAMPANELLA.OutJob
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[GeneratedDocument1]
+DocumentPath=PCBWay_Files\PCBWay Files\NC Drill\01403-32_sunburyr6_05_7719.DRR
+DItemRevisionGUID=
+
+[GeneratedDocument2]
+DocumentPath=PCBWay_Files\PCBWay Files\Gerber\01403-32_sunburyr6_05_7719.EXTREP
+DItemRevisionGUID=
+
+[GeneratedDocument3]
+DocumentPath=PCBWay_Files\PCBWay Files\Gerber\01403-32_sunburyr6_05_7719.GBL
+DItemRevisionGUID=
+
+[GeneratedDocument4]
+DocumentPath=PCBWay_Files\PCBWay Files\Gerber\01403-32_sunburyr6_05_7719.GBO
+DItemRevisionGUID=
+
+[GeneratedDocument5]
+DocumentPath=PCBWay_Files\PCBWay Files\Gerber\01403-32_sunburyr6_05_7719.GBS
+DItemRevisionGUID=
+
+[GeneratedDocument6]
+DocumentPath=PCBWay_Files\PCBWay Files\Gerber\01403-32_sunburyr6_05_7719.GKO
+DItemRevisionGUID=
+
+[GeneratedDocument7]
+DocumentPath=PCBWay_Files\PCBWay Files\Gerber\01403-32_sunburyr6_05_7719.GTL
+DItemRevisionGUID=
+
+[GeneratedDocument8]
+DocumentPath=PCBWay_Files\PCBWay Files\Gerber\01403-32_sunburyr6_05_7719.GTO
+DItemRevisionGUID=
+
+[GeneratedDocument9]
+DocumentPath=PCBWay_Files\PCBWay Files\Gerber\01403-32_sunburyr6_05_7719.GTS
+DItemRevisionGUID=
+
+[GeneratedDocument10]
+DocumentPath=PCBWay_Files\PCBWay Files\NC Drill\01403-32_sunburyr6_05_7719.LDP
+DItemRevisionGUID=
+
+[GeneratedDocument11]
+DocumentPath=PCBWay_Files\PCBWay Files\Gerber\01403-32_sunburyr6_05_7719.REP
+DItemRevisionGUID=
+
+[GeneratedDocument12]
+DocumentPath=PCBWay_Files\PCBWay Files\Gerber\01403-32_sunburyr6_05_7719.RUL
+DItemRevisionGUID=
+
+[GeneratedDocument13]
+DocumentPath=PCBWay_Files\PCBWay Files\NC Drill\01403-32_sunburyr6_05_7719.TXT
+DItemRevisionGUID=
+
+[GeneratedDocument14]
+DocumentPath=Project Outputs for PCB_Project\Design Rule Check - PCB1.html
+DItemRevisionGUID=
+
 [Configuration1]
 Name=Sources
 ParameterCount=0
